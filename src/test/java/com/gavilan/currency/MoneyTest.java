@@ -1,9 +1,16 @@
 package com.gavilan.currency;
 
+<<<<<<< HEAD
 import com.gavilan.currency.domain.Money;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+=======
+import com.gavilan.currency.domain.Dollar;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 48a899d2bb2a63fe6245dd45a84905bdb43fc8f4
 
 public class MoneyTest {
 
