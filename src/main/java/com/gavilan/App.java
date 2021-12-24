@@ -14,7 +14,7 @@ public class App
         Money ars = Money.ars(7775);
         Money arsToDollars;
 
-        Bank bank = new Bank();
+        Bank bank = Bank.getInstance();
         bank.addRate("ARS", "USD", 102.23f);
 
         arsToDollars = bank.reduce(ars, "USD");
