@@ -1,22 +1,26 @@
 package com.gavilan.currency.domain;
 
 public class Money implements Expression {
-    protected int amount;
+    protected float amount;
     protected String currency;
 
-    public Money(int amount, String currency) {
+    public Money(float amount, String currency) {
         this.amount = amount;
         this.currency = currency;
+    }
+
+    public String currency() {
+        return this.currency;
+    };
+
+    public float amount() {
+        return this.amount;
     }
 
     @Override
     public Expression times(int multiplier) {
         return new Money(this.amount * multiplier, currency);
-    };
-
-    public String currency() {
-        return this.currency;
-    };
+    }
 
     @Override
     public Expression plus(Expression addend) {
@@ -25,16 +29,20 @@ public class Money implements Expression {
 
     @Override
     public Money reduce(Bank bank, String to) {
-        int rate = bank.rate(currency, to);
+        float rate = bank.rate(currency, to);
         return new Money(amount / rate, to);
     }
 
-    public static Money dollar(int amount) {
+    public static Money dollar(float amount) {
         return new Money(amount, "USD");
     }
 
-    public static Money franc(int amount) {
+    public static Money franc(float amount) {
         return new Money(amount, "CHF");
+    }
+
+    public static Money ars(float amount) {
+        return new Money(amount, "ARS");
     }
 
     @Override

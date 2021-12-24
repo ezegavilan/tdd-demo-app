@@ -113,4 +113,12 @@ public class MoneyTest {
         assertEquals(Money.dollar(20), result);
     }
 
+    @Test
+    public void testConvertUDSToArs() {
+        Bank bank = new Bank();
+        bank.addRate("USD", "ARS", (float) 1/186);
+        Money result = bank.reduce(Money.dollar(20), "ARS");
+        System.out.println(result);
+        assertEquals(Money.ars(3720), result);
+    }
 }
