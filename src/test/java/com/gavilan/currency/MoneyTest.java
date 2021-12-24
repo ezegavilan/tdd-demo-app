@@ -121,4 +121,21 @@ public class MoneyTest {
         System.out.println(result);
         assertEquals(Money.ars(3720), result);
     }
+
+    @Test
+    public void testInvertAddRate() {
+        Bank bank = new Bank();
+        bank.addRate("ARS", "USD", 200);
+
+        Money pesos = Money.ars(5000);
+        Money resultDollar = bank.reduce(pesos, "USD");
+        System.out.println(resultDollar);
+        assertEquals(Money.dollar(25), resultDollar);
+
+        Money dollars = Money.dollar(10);
+        Money resultArs = bank.reduce(dollars, "ARS");
+        System.out.println(resultArs);
+        assertEquals(Money.ars(2000), resultArs);
+    }
+
 }

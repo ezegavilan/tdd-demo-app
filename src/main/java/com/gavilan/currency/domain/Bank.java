@@ -12,6 +12,7 @@ public class Bank {
 
     public void addRate(String from, String to, float rate) {
         rates.put(new Pair(from, to), rate);
+        rates.put(new Pair(to, from), (float) 1/rate);
     }
 
     public float rate(String from, String to) {
