@@ -25,4 +25,11 @@ public class Sum implements Expression {
         return new Sum(augend.times(multiplier), addend.times(multiplier));
     }
 
+    @Override
+    public String toString() {
+        return "Sum{" +
+                "augend=" + augend +
+                ", addend=" + addend +
+                '}';
+    }
 }
